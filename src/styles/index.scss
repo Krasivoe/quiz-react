@@ -1,0 +1,54 @@
+// Миксины
+@use "_mixins/container" as *;
+@use "_mixins/flex" as *;
+@use "_mixins/reset" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+
+// Компоненты
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  @include reset-model();
+}
+
+button {
+  @include reset-button();
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.wrapper {
+  @include wrapper();
+}
+
+.container {
+  @include container();
+}
+
+html,
+body {
+  @include reset-model();
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+}
