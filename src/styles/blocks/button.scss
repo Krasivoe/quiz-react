@@ -1,0 +1,28 @@
+@use "../utils" as *;
+
+.btn {
+  min-width: 140px;
+  color: $dark2;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 15px;
+  padding: 10px 20px;
+  background-size: 200% auto;
+  transition: 0.2s linear;
+  &:hover {
+    background-position: right center;
+    color: $dark;
+  }
+  &:active {
+    opacity: 0.6;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    &:hover {
+      background-position: 0 0;
+      color: $dark2;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use "../../../styles/utils" as *;
+
+.select {
+  min-width: 200px;
+  height: 30px;
+  border: 2px solid #6d6d6d;
+  border-radius: 3px;
+  padding: 3px 6px;
+  color: $dark2;
+  background: $white;
+  transition: all 0.2s linear;
+  &:hover,
+  &:focus {
+    border: 2px solid $dark;
+    background: #fff;
+  }
+}

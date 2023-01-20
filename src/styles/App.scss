@@ -1,0 +1,36 @@
+@use "./utils.scss" as *;
+
+body {
+  @include flex-center();
+  font-family: "Nunito", sans-serif;
+  color: $dark;
+  background: $purple1;
+  background: linear-gradient(90deg, $purple1 0%, $purple2 100%);
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  min-height: 370px;
+  border-radius: 30px;
+  padding: 40px;
+  background-color: $white;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 20px 40px,
+  rgba(0, 0, 0, 0.22) 0 15px 12px;
+}

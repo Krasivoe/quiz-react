@@ -1,0 +1,22 @@
+@use "../../styles/utils" as *;
+
+.home {
+  @include column-center();
+  gap: 10px;
+}
+
+.text {
+  text-align: center;
+  color: $dark;
+}
+
+.selectArea {
+  width: 100%;
+  @include flex-center();
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.btn {
+  margin-top: 55px;
+}
