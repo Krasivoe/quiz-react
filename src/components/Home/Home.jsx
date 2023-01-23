@@ -1,11 +1,23 @@
 import styles from './Home.module.scss';
 import Button from '../UI/Button/Button.jsx';
 import Select from '../UI/Select/Select.jsx';
-import { useState } from 'react';
+import { useEffect, useMemo } from 'react';
 
-const Home = () => {
-  const options = [{ value: 'React' }, { value: 'JavaScript' }];
-  const [select, setSelect] = useState(options[0].value);
+const Home = ({ theme, setTheme, setNeedFetch, onStart }) => {
+  const options = useMemo(() => [{ value: 'React' }, { value: 'JavaScript' }], []);
+
+  useEffect(() => {
+    if (!theme) {
+      setTheme(options[0].value);
+      return;
+    }
+    setTheme(theme);
+  }, [theme, setTheme, options]);
+
+  const onChangeSelect = selected => {
+    setNeedFetch(true);
+    setTheme(selected);
+  };
 
   return (
     <div className={styles.home}>
@@ -15,9 +27,9 @@ const Home = () => {
         &quot;Начать&quot;. Желаем удачи!
       </p>
       <div className={styles.selectArea}>
-        <Select value={select} onChange={selected => setSelect(selected)} options={options} />
+        <Select value={theme} onChange={selected => onChangeSelect(selected)} options={options} />
       </div>
-      <Button className={styles.btn} purpose="success">
+      <Button className={styles.btn} purpose="success" onClick={onStart}>
         Начать
       </Button>
     </div>
