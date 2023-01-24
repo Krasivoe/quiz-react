@@ -4,7 +4,9 @@ import Result from './components/Result/Result.jsx';
 import Home from './components/Home/Home.jsx';
 import { useEffect, useState } from 'react';
 import { useFetching } from './hooks/useFetching.js';
-import { shuffleQuestions } from "./utils/ShuffleQuestions.js";
+import { shuffleQuestions } from './utils/ShuffleQuestions.js';
+import Modal from './components/UI/Modal/Modal.jsx';
+import Answers from './components/Answers/Answers.jsx';
 
 const App = () => {
   const [activeContent, setActiveContent] = useState({
@@ -23,6 +25,8 @@ const App = () => {
   });
   const [needFetch, setNeedFetch] = useState(false);
   const [score, setScore] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [resultsActive, setResultsActive] = useState(false);
 
   useEffect(() => {
     setNeedFetch(true);
@@ -32,6 +36,7 @@ const App = () => {
     if (data && activeContent.game) {
       setQuestions(shuffleQuestions([...data]).slice(0, 5));
       setScore(0);
+      setUserAnswers([]);
     }
   }, [data, activeContent]);
 
@@ -51,23 +56,27 @@ const App = () => {
 
       {activeContent.game && (
         <Game
-          active={activeContent}
           setActive={setActiveContent}
           questions={questions}
           isLoading={isLoading}
           error={error}
           setScore={setScore}
+          setUserAnswers={setUserAnswers}
         />
       )}
 
       {activeContent.result && (
         <Result
-          active={activeContent}
           setActive={setActiveContent}
           questions={questions}
           score={score}
+          setResultsActive={setResultsActive}
         />
       )}
+
+      <Modal active={resultsActive} setActive={setResultsActive}>
+        <Answers questions={questions} userAnswers={userAnswers} />
+      </Modal>
     </div>
   );
 };

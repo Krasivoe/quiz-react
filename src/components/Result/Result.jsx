@@ -6,7 +6,7 @@ import Button from '../UI/Button/Button.jsx';
 import { useMemo, useState } from 'react';
 import Loader from '../UI/Loader/Loader.jsx';
 
-const Result = ({ setActive, questions, score }) => {
+const Result = ({ setActive, questions, score, setResultsActive }) => {
   const [logo, setLogo] = useState(logoBad);
   const [loading, setLoading] = useState(true);
 
@@ -55,8 +55,8 @@ const Result = ({ setActive, questions, score }) => {
         <Button className={styles.btn} purpose="main" onClick={moveHome}>
           Главная
         </Button>
-        <Button className={styles.btn} purpose="info">
-          Результаты
+        <Button className={styles.btn} purpose="info" onClick={() => setResultsActive(true)}>
+          Мои ответы
         </Button>
         <Button className={styles.btn} purpose="success" onClick={tryAgain}>
           Еще раз

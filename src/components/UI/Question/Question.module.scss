@@ -1,0 +1,20 @@
+@use "../../../styles/utils" as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .answer {
+    @include li-default();
+    background: $white;
+  }
+
+  .correct {
+    background: #84fab0;
+  }
+
+  .bad {
+    background: #de6797;
+  }
+}

@@ -57,11 +57,9 @@
   flex-direction: column;
   gap: 15px;
   .answer {
-    padding: 15px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    cursor: pointer;
+    @include li-default();
     background: $white;
+    cursor: pointer;
     transition: all 0.2s linear;
     &:hover {
       border: 2px solid rgba(0, 0, 0, 0.5);
