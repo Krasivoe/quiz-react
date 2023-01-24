@@ -4,9 +4,11 @@ import logoTry from '../../assets/images/results/try.png';
 import logoBad from '../../assets/images/results/cry.png';
 import Button from '../UI/Button/Button.jsx';
 import { useMemo, useState } from 'react';
+import Loader from '../UI/Loader/Loader.jsx';
 
-const Result = ({ active, setActive, questions, score }) => {
+const Result = ({ setActive, questions, score }) => {
   const [logo, setLogo] = useState(logoBad);
+  const [loading, setLoading] = useState(true);
 
   useMemo(() => {
     if (score > 1) setLogo(logoTry);
@@ -14,16 +16,38 @@ const Result = ({ active, setActive, questions, score }) => {
   }, [score]);
 
   const moveHome = () => {
-    setActive({ ...active, result: false, home: true });
+    setActive(prevState => ({
+      ...prevState,
+      result: false,
+      home: true
+    }));
   };
 
-  const moveGame = () => {
-    setActive({ ...active, result: false, game: true });
+  const tryAgain = () => {
+    setActive(prevState => ({
+      ...prevState,
+      result: false,
+      game: true
+    }));
   };
 
   return (
     <div className={styles.result}>
-      <img src={logo.toString()} alt="result" width="150" height="150" />
+      {loading && (
+        <div className={styles.image}>
+          <Loader />
+        </div>
+      )}
+      {
+        <img
+          style={{ display: loading ? 'none' : 'block' }}
+          src={logo.toString()}
+          onLoad={() => setLoading(false)}
+          alt="result"
+          width="150"
+          height="150"
+        />
+      }
       <h2>
         Правильных ответов: {score} из {questions.length}
       </h2>
@@ -34,7 +58,7 @@ const Result = ({ active, setActive, questions, score }) => {
         <Button className={styles.btn} purpose="info">
           Результаты
         </Button>
-        <Button className={styles.btn} purpose="success" onClick={moveGame}>
+        <Button className={styles.btn} purpose="success" onClick={tryAgain}>
           Еще раз
         </Button>
       </div>

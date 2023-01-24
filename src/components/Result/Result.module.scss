@@ -1,8 +1,15 @@
+@use "../../styles/utils" as *;
+
 .result {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+}
+
+.image {
+  @include flex-center();
+  height: 150px;
 }
 
 .buttons {
