@@ -40,7 +40,7 @@ const Result = ({ setActive, questions, score, setResultsActive }) => {
           height="150"
         />
       }
-      <h2>
+      <h2 className={styles.title}>
         Правильных ответов: {score} из {questions.length}
       </h2>
       <div className={styles.buttons}>

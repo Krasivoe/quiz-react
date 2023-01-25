@@ -19,3 +19,10 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 450px) {
+  .loader {
+    position: relative;
+    top: -20%;
+  }
+}

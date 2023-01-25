@@ -17,3 +17,17 @@
     background: #fff;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .select {
+    color: $dark;
+    background: transparent;
+    text-align: center;
+    text-align: -webkit-center;
+    -webkit-appearance: none;
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
+  }
+}

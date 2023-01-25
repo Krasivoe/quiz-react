@@ -20,3 +20,14 @@
 .btn {
   margin-top: 55px;
 }
+
+@media screen and (max-width: 450px) {
+  .home {
+    position: relative;
+    top: -5%;
+  }
+
+  .text {
+    font-weight: bold;
+  }
+}

@@ -6,6 +6,9 @@ const Modal = ({ children, active, setActive }) => {
       className={active ? [styles.modal, styles.open].join(' ') : styles.modal}
       onClick={() => setActive(false)}
     >
+      {document.documentElement.clientWidth < 768 && (
+        <span className={styles.cross} onClick={() => setActive(false)} />
+      )}
       <div className={styles.content} onClick={e => e.stopPropagation()}>
         {children}
       </div>
