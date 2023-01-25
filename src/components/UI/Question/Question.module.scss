@@ -7,14 +7,14 @@
 
   .answer {
     @include li-default();
-    background: $white;
+    background: #fff;
   }
 
   .correct {
-    background: #84fab0;
+    background: #81ffaf;
   }
 
   .bad {
-    background: #de6797;
+    background: #ff779e;
   }
 }

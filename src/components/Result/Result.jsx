@@ -1,19 +1,11 @@
 import styles from './Result.module.scss';
-import logoGood from '../../assets/images/results/cool.png';
-import logoTry from '../../assets/images/results/try.png';
-import logoBad from '../../assets/images/results/cry.png';
+import logo from '../../assets/images/results/finish.png';
 import Button from '../UI/Button/Button.jsx';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import Loader from '../UI/Loader/Loader.jsx';
 
 const Result = ({ setActive, questions, score, setResultsActive }) => {
-  const [logo, setLogo] = useState(logoBad);
   const [loading, setLoading] = useState(true);
-
-  useMemo(() => {
-    if (score > 1) setLogo(logoTry);
-    if (score === 5) setLogo(logoGood);
-  }, [score]);
 
   const moveHome = () => {
     setActive(prevState => ({

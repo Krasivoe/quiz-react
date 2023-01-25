@@ -2,27 +2,21 @@
 
 .btn {
   min-width: 140px;
-  color: $dark2;
+  color: $dark;
   font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  border-radius: 15px;
+  border: 2px solid $dark2;
+  border-radius: 3px;
   padding: 10px 20px;
-  background-size: 200% auto;
-  transition: 0.2s linear;
+  background: transparent;
+  transition: all 0.2s linear;
   &:hover {
-    background-position: right center;
-    color: $dark;
+    color: #fff;
+    border: 2px solid $dark;
   }
   &:active {
-    opacity: 0.6;
-  }
-  &:disabled {
-    cursor: not-allowed;
-    &:hover {
-      background-position: 0 0;
-      color: $dark2;
-    }
+    opacity: 0.8;
   }
 }

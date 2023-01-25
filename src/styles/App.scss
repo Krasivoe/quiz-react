@@ -5,7 +5,7 @@ body {
   font-family: "Nunito", sans-serif;
   color: $dark;
   background: $purple1;
-  background: linear-gradient(90deg, $purple1 0%, $purple2 100%);
+  background: linear-gradient(315deg, $purple1 0%, $purple2 100%);
 }
 
 h1, h2, h3 {
@@ -32,7 +32,7 @@ h3 {
   gap: 20px;
   width: 600px;
   min-height: 370px;
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 40px;
   background-color: $white;
   position: relative;

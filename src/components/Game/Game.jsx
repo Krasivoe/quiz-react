@@ -38,7 +38,7 @@ const Game = ({ setActive, questions, error, isLoading, setScore, setUserAnswers
   }
 
   return (
-    <div className={[styles.game, styles.last1, styles.last2].join(' ')}>
+    <div className={styles.game}>
       <div className={styles.progress}>
         <div style={{ width: `${progress}%` }} className={styles.line} />
       </div>

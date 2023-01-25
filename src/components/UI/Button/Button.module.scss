@@ -1,11 +1,19 @@
+@use "../../../styles/utils" as *;
+
 .btnMain {
-  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 50%, #a1c4fd 100%);
+  &:hover {
+    background: $red;
+  }
 }
 
 .btnInfo {
-  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 50%, #84fab0 100%);
+  &:hover {
+    background: #01d3e0;
+  }
 }
 
 .btnSuccess {
-  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 50%, #fbc2eb 100%);
+  &:hover {
+    background: $blue;
+  }
 }
